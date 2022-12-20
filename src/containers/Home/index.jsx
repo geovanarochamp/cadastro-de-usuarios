@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import axios from "axios"
 
 import {
@@ -9,12 +9,10 @@ import {
   Input,
   InputLabel,
   Titulo,
-  User,
 } from "./styles"
 
-import Chat from "./assets/chat.svg"
-import Arrow from "./assets/arrow.svg"
-import Trash from "./assets/trash.svg"
+import Chat from "../../assets/chat.svg"
+import Arrow from "../../assets/arrow.svg"
 
 function App() {
   const [users, setUsers] = useState([])
@@ -27,21 +25,6 @@ function App() {
       age: inputAge.current.value,
     })
     setUsers([...users, newUser])
-  }
-
-  useEffect(() => {
-    async function fetchUsers() {
-      const { data: usersList } = await axios.get("http://localhost:3001/users")
-      setUsers(usersList)
-    }
-
-    fetchUsers()
-  }, [])
-
-  async function deleteUser(userId) {
-    await axios.delete(`http://localhost:3001/users/${userId}`)
-    const newUsersList = users.filter((user) => user.id !== userId)
-    setUsers(newUsersList)
   }
 
   return (
@@ -59,18 +42,6 @@ function App() {
         <Button onClick={addNewUser}>
           Cadastrar <img src={Arrow} alt="seta para a direita " />
         </Button>
-
-        <ul>
-          {users.map((user) => (
-            <User key={user.id}>
-              <span>{user.name}</span>
-              <span>{user.age}</span>
-              <button onClick={() => deleteUser(user.id)}>
-                <img src={Trash} alt="lata de lixo" />
-              </button>
-            </User>
-          ))}
-        </ul>
       </Content>
     </Container>
   )

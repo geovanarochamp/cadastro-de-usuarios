@@ -1,19 +1,20 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
 
   background: #ececec;
 `
 
 export const Image = styled.img`
-  margin-top: 30px;
+  margin: 40px 0;
 `
 
 export const Content = styled.div`
+  height: 100%;
   background: linear-gradient(
     157.44deg,
     rgba(255, 255, 255, 0.6) 0.84%,
@@ -94,45 +95,9 @@ export const Button = styled.button`
   gap: 10px;
 
   cursor: pointer;
-  transition: background 0.3s;
+  transition: transform 0.3s;
 
   &:hover {
-    background: #e57122;
-  }
-`
-
-export const User = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 342px;
-  height: 54px;
-
-  border: none;
-  outline: none;
-
-  border-bottom: 2px solid #e0e0e0;
-  margin-top: 12px;
-
-  span {
-    flex: 1;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 14px;
-    text-transform: uppercase;
-
-    color: #282828;
-  }
-
-  button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  button img {
-    opacity: 0.25;
-    width: 75%;
+    transform: scale(0.98);
   }
 `
