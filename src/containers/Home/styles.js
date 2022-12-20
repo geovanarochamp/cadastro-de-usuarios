@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +15,7 @@ export const Image = styled.img`
 `
 
 export const Content = styled.div`
-  height: 100%;
+  height: calc(100vh - 170px);
   background: linear-gradient(
     157.44deg,
     rgba(255, 255, 255, 0.6) 0.84%,

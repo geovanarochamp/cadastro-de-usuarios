@@ -1,9 +1,8 @@
 import React from "react"
 import { Titulo } from "./styles"
 
-function Title(props) {
-  console.log(props)
-  return <Titulo></Titulo>
+function Title({ children }) {
+  return <Titulo>{children}</Titulo>
 }
 
 export default Title

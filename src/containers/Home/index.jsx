@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
-import { Titulo } from "../../components/Title/styles"
+import Titulo from "../../components/Title"
 import { Button, Container, Content, Image, Input, InputLabel } from "./styles"
 
 import Chat from "../../assets/chat.svg"
@@ -28,7 +28,7 @@ function App() {
     <Container>
       <Image alt="pessoas conversando" src={Chat} />
       <Content>
-        <Titulo>Olá!</Titulo>
+        <Titulo>Olá</Titulo>
 
         <InputLabel>Nome</InputLabel>
         <Input ref={inputName} placeholder="escreva seu nome completo" />

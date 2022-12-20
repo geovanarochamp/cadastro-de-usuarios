@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
-import { Button, Container, Content, Image, Titulo, User } from "./styles"
+import Titulo from "../../components/Title/"
+
+import { Button, Container, Content, Image, User } from "./styles"
 
 import Avatar from "../../assets/avatars.svg"
 import Arrow from "../../assets/arrow.svg"

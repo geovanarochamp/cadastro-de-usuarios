@@ -28,14 +28,6 @@ export const Content = styled.div`
   flex-direction: column;
 `
 
-export const Titulo = styled.h1`
-  margin-bottom: 80px;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 40px;
-  text-align: center;
-  color: #24285b;
-`
 export const User = styled.li`
   display: flex;
   justify-content: space-between;
