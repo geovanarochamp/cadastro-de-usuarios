@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import axios from "axios"
 
 import {
@@ -22,19 +22,24 @@ function App() {
   const inputAge = useRef()
 
   async function addNewUser() {
-    // const { data: newUser } = await axios.post("http://localhost:3001/users", {
-    //   name: inputName.current.value,
-    //   age: inputAge.current.value,
-    // })
-
-    // setUsers([...users, newUser])
-
-    const { data: usersList } = await axios.get("http://localhost:3001/users")
-    setUsers(usersList)
-    console.log(usersList)
+    const { data: newUser } = await axios.post("http://localhost:3001/users", {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+    })
+    setUsers([...users, newUser])
   }
 
-  function deleteUser(userId) {
+  useEffect(() => {
+    async function fetchUsers() {
+      const { data: usersList } = await axios.get("http://localhost:3001/users")
+      setUsers(usersList)
+    }
+
+    fetchUsers()
+  }, [])
+
+  async function deleteUser(userId) {
+    await axios.delete(`http://localhost:3001/users/${userId}`)
     const newUsersList = users.filter((user) => user.id !== userId)
     setUsers(newUsersList)
   }
