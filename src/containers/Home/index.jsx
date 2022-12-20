@@ -1,20 +1,15 @@
 import { useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 
-import {
-  Button,
-  Container,
-  Content,
-  Image,
-  Input,
-  InputLabel,
-  Titulo,
-} from "./styles"
+import { Titulo } from "../../components/Title/styles"
+import { Button, Container, Content, Image, Input, InputLabel } from "./styles"
 
 import Chat from "../../assets/chat.svg"
 import Arrow from "../../assets/arrow.svg"
 
 function App() {
+  const navigate = useNavigate()
   const [users, setUsers] = useState([])
   const inputName = useRef()
   const inputAge = useRef()
@@ -25,6 +20,8 @@ function App() {
       age: inputAge.current.value,
     })
     setUsers([...users, newUser])
+
+    navigate("/users")
   }
 
   return (

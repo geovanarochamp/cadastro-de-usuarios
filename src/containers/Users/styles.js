@@ -73,6 +73,7 @@ export const User = styled.li`
 `
 
 export const Button = styled.button`
+  text-decoration: none;
   width: 342px;
   height: 60px;
   margin-top: 50px;
